@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ModuleActivity extends AppCompatActivity {
@@ -14,6 +16,7 @@ public class ModuleActivity extends AppCompatActivity {
     TextView tv4;
     TextView tv5;
     TextView tv6;
+    Button btnBack;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class ModuleActivity extends AppCompatActivity {
         tv4 = findViewById(R.id.textView9);
         tv5 = findViewById(R.id.textView10);
         tv6 = findViewById(R.id.textView11);
+        btnBack = findViewById(R.id.button);
 
         Intent i = getIntent();
         String code = i.getStringExtra("code");
@@ -41,5 +45,12 @@ public class ModuleActivity extends AppCompatActivity {
         tv4.setText("Semester: "+semester);
         tv5.setText("Module Credit: "+credit);
         tv6.setText("Venue: "+venue);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
